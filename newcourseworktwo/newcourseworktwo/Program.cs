@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace cw2_mk2
 {
@@ -34,6 +34,7 @@ namespace cw2_mk2
                 CandidateVotes[i] = Convert.ToDouble(Console.ReadLine());
                 Total = Total + CandidateVotes[i];
             }
+
             // doing the percentages for the if statements
 
             dubEligibleVoterspercent = (dubEligibleVoters / dubEligibleVoters) * 60; // determine 60% of eligible for valid/invalid
@@ -62,21 +63,21 @@ namespace cw2_mk2
                 HighestVotePercent = (highestvote / Total) * 100;
                 if (HighestVotePercent >= dubWinningPercent)
                 {
-                    winner = "Enough people voted for the candidate to win";
+                    winner = "Enough people voted for " + HighestCandidate + " to win" + " with " + highestvote + " votes";
                 }
                 else
                 {
-                    winner = "Not Enough people voted for the candidate to win";
+                    winner = "Not Enough people voted " + HighestCandidate + " to win";
                 }
                 Console.WriteLine(valid);
-                Console.WriteLine(winner);
                 Console.WriteLine("The total amount of votes was " + Total);
-                Console.WriteLine(HighestCandidate + " had the most votes with " + highestvote + " votes");
+                Console.WriteLine(winner);
+                Console.WriteLine("Candidate" + "\t" + "Votes");
 
                 // for loop to output the arrays as a list
                 for (int i = 0; i < NumberOfCandidates; i++)
                 {
-                    Console.WriteLine(CandidateNames[i] + " had " + CandidateVotes[i] + " votes");
+                    Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i]);
                 }
                 Console.ReadLine();
             }
@@ -86,11 +87,12 @@ namespace cw2_mk2
                 winner = "there was no winner due to invalid election";
                 Console.WriteLine("The total amount of votes was " + Total);
                 Console.WriteLine(valid + "\n" + winner);
+                Console.WriteLine("Candidate" + "\t" + "Votes");
 
                 // for loop to output the arrays as a list
                 for (int i = 0; i < NumberOfCandidates; i++)
                 {
-                    Console.WriteLine(CandidateNames[i] + " had " + CandidateVotes[i] + " votes");
+                    Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i]);
                 }
                 Console.ReadLine();
             }
