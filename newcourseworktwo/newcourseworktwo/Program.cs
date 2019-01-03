@@ -9,8 +9,7 @@ namespace cw2_mk2
             try // try catch around the entire program to save having multiples at every point
             {
                 // Candidate names and votes
-                int numberOfCandidates, highestVote;
-                double dubeligibleVoters;
+                int numberOfCandidates, highestVote, inteligibleVoters;
                 string Valid, Winner, highestCandidate;
                 double dubeligibleVotersPercent, dubtotalVotesPercent, dubwinningPercent, highestVotePercent;
 
@@ -18,13 +17,14 @@ namespace cw2_mk2
                 Console.WriteLine("Please enter the number of candidates between 1-8: ");
                 numberOfCandidates = Convert.ToInt32(Console.ReadLine());
 
+                //arrays themselves
                 string[] CandidateNames = new string[numberOfCandidates];
                 int[] CandidateVotes = new int[numberOfCandidates];
                 double[] candidatePercent = new double[numberOfCandidates];
 
                 // eligible voters overall
                 Console.WriteLine("How many eligible voters overall: ");
-                dubeligibleVoters = Convert.ToDouble(Console.ReadLine());
+                inteligibleVoters = Convert.ToInt32(Console.ReadLine());
 
                 // inputing data to the arrays 
 
@@ -44,8 +44,8 @@ namespace cw2_mk2
                 {
                     candidatePercent[i] = (CandidateVotes[i] / Total) * 100;
                 }
-                dubeligibleVotersPercent = (dubeligibleVoters / dubeligibleVoters) * 60; // determine 60% of eligible for valid/invalid
-                dubtotalVotesPercent = (Total / dubeligibleVoters) * 100;
+                dubeligibleVotersPercent = (inteligibleVoters / inteligibleVoters) * 60; // determine 60% of eligible for valid/invalid
+                dubtotalVotesPercent = (Total / inteligibleVoters) * 100;
                 dubwinningPercent = (Total / Total) * 50; // total by total 50% of total votes to determine winner
 
                 // if statement to figure out if election is valid 
