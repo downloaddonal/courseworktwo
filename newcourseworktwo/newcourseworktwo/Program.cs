@@ -42,11 +42,11 @@ namespace cw2_mk2
                 // doing the percentages for the if statements
                 for (int i = 0; i < numberOfCandidates; i++)
                 {
-                    candidatePercent[i] = (CandidateVotes[i] / Total) * 100;
+                    candidatePercent[i] = ((double)CandidateVotes[i] / Total) * 100;
                 }
                 dubeligibleVotersPercent = (inteligibleVoters / inteligibleVoters) * 60; // determine 60% of eligible for valid/invalid
-                dubtotalVotesPercent = (Total / inteligibleVoters) * 100;
-                dubwinningPercent = (Total / Total) * 50; // total by total 50% of total votes to determine winner
+                dubtotalVotesPercent = ((double)Total / inteligibleVoters) * 100;
+                dubwinningPercent = ((double)Total / (double)Total) * 50; // total by total 50% of total votes to determine winner
 
                 // if statement to figure out if election is valid 
                 if (dubtotalVotesPercent >= dubeligibleVotersPercent)
@@ -67,7 +67,7 @@ namespace cw2_mk2
 
                     }
                     // takes the highest vote percent against the winning percent and determines if enough people voted to win
-                    highestVotePercent = (highestVote / Total) * 100;
+                    highestVotePercent = ((double)highestVote / Total) * 100;
                     if (highestVotePercent >= dubwinningPercent)
                     {
                         Winner = "Enough people voted for " + highestCandidate + " to win" + " with " + highestVote + " votes";
@@ -84,7 +84,7 @@ namespace cw2_mk2
                     // for loop to output the arrays as a list
                     for (int i = 0; i < numberOfCandidates; i++)
                     {
-                        Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] +"\t\t" + Math.Round(candidatePercent[i], 0) + "%");
+                        Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] + "\t\t" + Math.Round(candidatePercent[i], 1) + "%");
                     }
                     Console.ReadLine();
                 }
@@ -99,7 +99,7 @@ namespace cw2_mk2
                     // for loop to output the arrays as a list
                     for (int i = 0; i < numberOfCandidates; i++)
                     {
-                        Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] +"\t\t" + Math.Round(candidatePercent[i], 0) + "%");
+                        Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] + "\t\t" + Math.Round(candidatePercent[i], 0) + "%");
                     }
                     Console.ReadLine();
                 }
