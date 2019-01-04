@@ -74,7 +74,7 @@ namespace cw2_mk2
                     }
                     else
                     {
-                        Winner = "Not Enough people voted " + highestCandidate + " to win";
+                        Winner = "Not Enough people voted for a candidate to win";
                     }
                 }
                 else
@@ -82,7 +82,7 @@ namespace cw2_mk2
                     Valid = "The election was invalid";
                     Winner = "there was no winner due to invalid election";
                 }
-                // outputs everything that was set to the above and a for loop to print the results regardless of outcome
+                // outputs everything that was set above,for loop to print the results regardless of outcome
                 Console.WriteLine("The total amount of votes was " + Total);
                 Console.WriteLine(Winner);
                 Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
