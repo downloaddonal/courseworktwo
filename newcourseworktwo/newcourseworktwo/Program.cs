@@ -9,27 +9,27 @@ namespace cw2_mk2
             try // try catch around the entire program to save having multiples at every point
             {
                 // Candidate names and votes
-                int numberOfCandidates, highestVote, inteligibleVoters;
-                string Valid, Winner, highestCandidate;
+                int intnumberOfCandidates, inthighestVote, inteligibleVoters;
+                string strValid, strWinner, strhighestCandidate;
                 double dubeligibleVotersPercent, dubtotalVotesPercent, dubwinningPercent, highestVotePercent;
 
                 // Variable candidate amount used to prep the arrays
                 Console.WriteLine("Please enter the number of candidates between 1-8: ");
-                numberOfCandidates = Convert.ToInt32(Console.ReadLine());
-
-                //arrays themselves
-                string[] CandidateNames = new string[numberOfCandidates];
-                int[] CandidateVotes = new int[numberOfCandidates];
-                double[] candidatePercent = new double[numberOfCandidates];
+                intnumberOfCandidates = Convert.ToInt32(Console.ReadLine());
 
                 // eligible voters overall
                 Console.WriteLine("How many eligible voters overall: ");
                 inteligibleVoters = Convert.ToInt32(Console.ReadLine());
 
+                //arrays
+                string[] CandidateNames = new string[intnumberOfCandidates];
+                int[] CandidateVotes = new int[intnumberOfCandidates];
+                double[] candidatePercent = new double[intnumberOfCandidates];
+
                 // inputing data to the arrays 
 
                 int Total = 0;
-                for (int i = 0; i < numberOfCandidates; i++)
+                for (int i = 0; i < intnumberOfCandidates; i++)
                 {
                     Console.WriteLine("Please enter the name of candidate: ");
                     CandidateNames[i] = Console.ReadLine();
@@ -38,9 +38,8 @@ namespace cw2_mk2
                     Total = Total + CandidateVotes[i];
                 }
 
-
-                // doing the percentages for the if statements
-                for (int i = 0; i < numberOfCandidates; i++)
+                // doing the percentages for the if statements have to cast the ints as doubles
+                for (int i = 0; i < intnumberOfCandidates; i++)
                 {
                     candidatePercent[i] = ((double)CandidateVotes[i] / Total) * 100;
                 }
@@ -51,43 +50,42 @@ namespace cw2_mk2
                 // if statement to figure out if election is valid 
                 if (dubtotalVotesPercent >= dubeligibleVotersPercent)
                 {
-                    Valid = "The election was valid";
+                    strValid = "The election was valid";
                     // find out the most vote percent
-                    highestVote = 0;
-                    highestCandidate = "";
-                    for (int i = 0; i < numberOfCandidates; i++)
+                    inthighestVote = 0;
+                    strhighestCandidate = "";
+                    for (int i = 0; i < intnumberOfCandidates; i++)
                     {
                         int currentvote = (int)CandidateVotes[i];
                         // this if statement compares the candidate vote with the highest vote and when it does sets the highest scoring candidate
-                        if (CandidateVotes[i] > highestVote)
+                        if (CandidateVotes[i] > inthighestVote)
                         {
-                            highestVote = currentvote;
-                            highestCandidate = CandidateNames[i];
+                            inthighestVote = currentvote;
+                            strhighestCandidate = CandidateNames[i];
                         }
-
                     }
                     // takes the highest vote percent against the winning percent and determines if enough people voted to win
-                    highestVotePercent = ((double)highestVote / Total) * 100;
+                    highestVotePercent = ((double)inthighestVote / Total) * 100;
                     if (highestVotePercent >= dubwinningPercent)
                     {
-                        Winner = "Enough people voted for " + highestCandidate + " to win" + " with " + highestVote + " votes";
+                        strWinner = "Enough people voted for " + strhighestCandidate + " to win" + " with " + inthighestVote + " votes";
                     }
                     else
                     {
-                        Winner = "Not Enough people voted for a candidate to win";
+                        strWinner = "Not enough people voted for a candidate to win";
                     }
                 }
                 else
                 {
-                    Valid = "The election was invalid";
-                    Winner = "there was no winner due to invalid election";
+                    strValid = "The election was invalid";
+                    strWinner = "there was no winner due to invalid election";
                 }
                 // outputs everything that was set above,for loop to print the results regardless of outcome
                 Console.WriteLine("The total amount of votes was " + Total);
-                Console.WriteLine(Winner);
+                Console.WriteLine(strWinner);
                 Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
-                // for loop for the results
-                for (int i = 0; i < numberOfCandidates; i++)
+                // for loop for the results stored in arrays
+                for (int i = 0; i < intnumberOfCandidates; i++)
                 {
                     Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] + "\t\t" + Math.Round(candidatePercent[i], 1) + "%");
                 }
@@ -95,7 +93,7 @@ namespace cw2_mk2
             }
             catch (FormatException ex) // catch outputting a format error
             {
-                Console.WriteLine(ex.Message + " Please enter a number");
+                Console.WriteLine(ex.Message);
                 Console.WriteLine("Program will now close, press any key to exit");
                 Console.ReadKey();
                 return;
