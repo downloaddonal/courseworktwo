@@ -44,8 +44,8 @@ namespace cw2_mk2
                     candidatePercent[i] = ((double)CandidateVotes[i] / Total) * 100;
                 }
                 dubeligibleVotersPercent = (inteligibleVoters / inteligibleVoters) * 60; // determine 60% of eligible for valid/invalid
-                dubtotalVotesPercent = ((double)Total / inteligibleVoters) * 100;
-                dubwinningPercent = ((double)Total / (double)Total) * 50; // total by total 50% of total votes to determine winner
+                dubtotalVotesPercent = (Total / inteligibleVoters) * 100;
+                dubwinningPercent = (Total/Total) * 50; // total by total 50% of total votes to determine winner
 
                 // if statement to figure out if election is valid 
                 if (dubtotalVotesPercent >= dubeligibleVotersPercent)
