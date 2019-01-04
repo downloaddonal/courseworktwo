@@ -76,33 +76,22 @@ namespace cw2_mk2
                     {
                         Winner = "Not Enough people voted " + highestCandidate + " to win";
                     }
-                    Console.WriteLine(Valid);
-                    Console.WriteLine("The total amount of votes was " + Total);
-                    Console.WriteLine(Winner);
-                    Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
-
-                    // for loop to output the arrays as a list
-                    for (int i = 0; i < numberOfCandidates; i++)
-                    {
-                        Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] + "\t\t" + Math.Round(candidatePercent[i], 1) + "%");
-                    }
-                    Console.ReadLine();
                 }
                 else
                 {
                     Valid = "The election was invalid";
                     Winner = "there was no winner due to invalid election";
-                    Console.WriteLine("The total amount of votes was " + Total);
-                    Console.WriteLine(Valid + "\n" + Winner);
-                    Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
-
-                    // for loop to output the arrays as a list
-                    for (int i = 0; i < numberOfCandidates; i++)
-                    {
-                        Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] + "\t\t" + Math.Round(candidatePercent[i], 0) + "%");
-                    }
-                    Console.ReadLine();
                 }
+                // outputs everything that was set to the above and a for loop to print the results regardless of outcome
+                Console.WriteLine("The total amount of votes was " + Total);
+                Console.WriteLine(Winner);
+                Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
+                // for loop for the results
+                for (int i = 0; i < numberOfCandidates; i++)
+                {
+                    Console.WriteLine(CandidateNames[i] + "\t\t" + CandidateVotes[i] + "\t\t" + Math.Round(candidatePercent[i], 1) + "%");
+                }
+                Console.ReadLine();
             }
             catch (FormatException ex) // catch outputting a format error
             {
