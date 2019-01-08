@@ -10,7 +10,7 @@ namespace cw2_mk2
             {
                 // Candidate names and votes
                 int intnumberOfCandidates, inthighestVote, inteligibleVoters;
-                string strValid, strWinner, strhighestCandidate;
+                string strValid, strResult, strhighestCandidate;
                 double dubeligibleVotersPercent, dubtotalVotesPercent, dubwinningPercent, highestVotePercent;
 
                 // Variable candidate amount used to prep the arrays
@@ -44,7 +44,7 @@ namespace cw2_mk2
                     candidatePercent[i] = ((double)CandidateVotes[i] / Total) * 100;
                 }
                 dubeligibleVotersPercent = (inteligibleVoters / inteligibleVoters) * 60; // determine 60% of eligible for valid/invalid
-                dubtotalVotesPercent = (Total / inteligibleVoters) * 100;
+                dubtotalVotesPercent = ((double)Total / inteligibleVoters) * 100;
                 dubwinningPercent = (Total/Total) * 50; // total by total 50% of total votes to determine winner
 
                 // if statement to figure out if election is valid 
@@ -68,21 +68,22 @@ namespace cw2_mk2
                     highestVotePercent = ((double)inthighestVote / Total) * 100;
                     if (highestVotePercent >= dubwinningPercent)
                     {
-                        strWinner = "Enough people voted for " + strhighestCandidate + " to win" + " with " + inthighestVote + " votes";
+                        strResult = "Enough people voted for " + strhighestCandidate + " to win" + " with " + inthighestVote + " votes";
                     }
                     else
                     {
-                        strWinner = "Not enough people voted for a candidate to win";
+                        strResult = "Not enough people voted for a candidate to win";
                     }
                 }
                 else
                 {
                     strValid = "The election was invalid";
-                    strWinner = "there was no winner due to invalid election";
+                    strResult = "there was no winner due to invalid election";
                 }
                 // outputs everything that was set above,for loop to print the results regardless of outcome
                 Console.WriteLine("The total amount of votes was " + Total);
-                Console.WriteLine(strWinner);
+                Console.WriteLine(strResult);
+                Console.WriteLine(strValid);
                 Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
                 // for loop for the results stored in arrays
                 for (int i = 0; i < intnumberOfCandidates; i++)
