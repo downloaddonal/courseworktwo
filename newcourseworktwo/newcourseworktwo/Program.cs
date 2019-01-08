@@ -12,7 +12,7 @@ namespace cw2_mk2
                 // Candidate names and votes
                 int intnumberOfCandidates, inthighestVote, inteligibleVoters;
                 string strValid, strResult, strhighestCandidate;
-                double dubeligibleVotersPercent, dubtotalVotesPercent, dubwinningPercent, highestVotePercent;
+                double dubeligibleVotersPercent, dubtotalVotesPercent, dubwinningPercent, dubhighestVotePercent;
 
                 // Variable candidate amount used to prep the arrays
                 Console.WriteLine("Please enter the number of candidates between 1-8: ");
@@ -66,8 +66,8 @@ namespace cw2_mk2
                         }
                     }
                     // takes the highest vote percent against the winning percent and determines if enough people voted to win
-                    highestVotePercent = ((double)inthighestVote / Total) * 100;
-                    if (highestVotePercent >= dubwinningPercent)
+                    dubhighestVotePercent = ((double)inthighestVote / Total) * 100;
+                    if (dubhighestVotePercent >= dubwinningPercent)
                     {
                         strResult = "Enough people voted for " + strhighestCandidate + " to win" + " with " + inthighestVote + " votes";
                     }
