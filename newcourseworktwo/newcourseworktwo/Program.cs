@@ -8,6 +8,7 @@ namespace cw2_mk2
         {
             try // try catch around the entire program to save having multiples at every point
             {
+
                 // Candidate names and votes
                 int intnumberOfCandidates, inthighestVote, inteligibleVoters;
                 string strValid, strResult, strhighestCandidate;
@@ -50,7 +51,7 @@ namespace cw2_mk2
                 // if statement to figure out if election is valid 
                 if (dubtotalVotesPercent >= dubeligibleVotersPercent)
                 {
-                    strValid = "The election was valid";
+                    strValid = "The election was valid due to having " + Math.Round(dubeligibleVotersPercent, 1) + "%";
                     // find out the most vote percent
                     inthighestVote = 0;
                     strhighestCandidate = "";
@@ -77,13 +78,13 @@ namespace cw2_mk2
                 }
                 else
                 {
-                    strValid = "The election was invalid";
+                    strValid = "The election was invalid due to having " + Math.Round(dubeligibleVotersPercent, 1) + "%";
                     strResult = "there was no winner due to invalid election";
                 }
                 // outputs everything that was set above,for loop to print the results regardless of outcome
-                Console.WriteLine("The total amount of votes was " + Total);
-                Console.WriteLine(strResult);
+                Console.WriteLine("The total amount of votes was " + Total + " with " + inteligibleVoters + " eligible voters");
                 Console.WriteLine(strValid);
+                Console.WriteLine(strResult);
                 Console.WriteLine("Candidate" + "\t" + "Votes" + "\t" + " percentage");
                 // for loop for the results stored in arrays
                 for (int i = 0; i < intnumberOfCandidates; i++)
